@@ -19,7 +19,9 @@
       --ink: #593b35;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
@@ -139,8 +141,15 @@
       transition: opacity .7s ease;
     }
 
-    .invitation::-webkit-scrollbar { display: none; }
-    .invitation.visible { visibility: visible; opacity: 1; pointer-events: auto; }
+    .invitation::-webkit-scrollbar {
+      display: none;
+    }
+
+    .invitation.visible {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
 
     .reveal {
       opacity: 0;
@@ -154,7 +163,11 @@
     }
 
     @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
     }
 
     .wedding-logo {
@@ -176,7 +189,7 @@
       margin: .45% 0;
     }
 
-    /* Smaller family line, as requested */
+    /* Smaller family line */
     .family-line {
       font-size: clamp(9px, 2.1vw, 11.5px);
       font-weight: 700;
@@ -184,7 +197,7 @@
       margin: .45% 0 .25%;
     }
 
-    /* Soft gold light line directly after the family line */
+    /* Golden gradient line after family text */
     .family-ornament {
       width: 63%;
       height: 2px;
@@ -209,17 +222,19 @@
       margin: .3% 0 .7%;
     }
 
+    /* Wedding heading: elegant serif style */
     .headline {
       color: var(--burgundy);
       font: italic 600 clamp(31px, 7.2vw, 41px)/.98 "Cormorant Garamond", serif;
       margin: 1.1% 0 1%;
     }
 
-    .intro {
-      max-width: 98%;
-      color: #765d53;
-      font: 600 clamp(12px, 2.8vw, 14px)/1.25 "Cormorant Garamond", serif;
-      margin: 0 0 1.4%;
+    /* Blessing placed directly below Wedding Celebration */
+    .blessing-line {
+      color: #876538;
+      font: italic 600 clamp(13px, 3vw, 16px)/1.2 "Cormorant Garamond", serif;
+      letter-spacing: .025em;
+      margin: 1.1% 0 1.5%;
     }
 
     .section-label {
@@ -229,24 +244,25 @@
       margin: .7% 0 .15%;
     }
 
-    /* Light, elegant names in the same serif family as the heading */
+    /* Names: lighter Allura calligraphy */
     .person-name {
       color: var(--burgundy);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(31px, 7.2vw, 40px);
-      font-style: italic;
-      font-weight: 500;
-      line-height: 1.02;
+      font-family: "Allura", cursive;
+      font-size: clamp(39px, 9vw, 49px);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1;
       white-space: nowrap;
       margin: 0;
       letter-spacing: .015em;
       text-shadow: 0 .5px 0 rgba(255,255,255,.35);
     }
 
+    /* Parent details displayed in two lines */
     .parent-line {
       color: #6c514b;
-      font: 600 clamp(12px, 2.75vw, 14.5px)/1.2 "Cormorant Garamond", serif;
-      margin: .25% 0 1.1%;
+      font: 600 clamp(13.5px, 3vw, 16px)/1.18 "Cormorant Garamond", serif;
+      margin: .35% 0 1.1%;
     }
 
     .weds {
@@ -255,15 +271,7 @@
       margin: .35% 0 .5%;
     }
 
-    /* Blessing text replaces the lower decorative line */
-    .blessing-line {
-      color: #876538;
-      font: italic 600 clamp(13px, 3vw, 16px)/1.2 "Cormorant Garamond", serif;
-      letter-spacing: .025em;
-      margin: 1.3% 0 1.5%;
-    }
-
-    /* SAVE THE DATE design retained for later reuse; it is not displayed now. */
+    /* SAVE THE DATE design preserved for later reuse */
     .save-date {
       border: 1.5px solid rgba(183,135,63,.9);
       border-radius: 5px;
@@ -321,7 +329,9 @@
       background: rgba(255,248,235,.9);
     }
 
-    .action-btn:active { transform: translateY(1px); }
+    .action-btn:active {
+      transform: translateY(1px);
+    }
 
     .sr-only {
       position: absolute;
@@ -336,13 +346,32 @@
     }
 
     @media (max-height: 740px) {
-      .invitation { top: 21%; bottom: 5%; }
-      .wedding-logo { width: clamp(82px, 21vw, 112px); max-height: 88px; }
-      .headline { font-size: clamp(28px, 6.7vw, 37px); }
-      .person-name { font-size: clamp(28px, 6.7vw, 36px); }
-      .intro { margin-bottom: 1%; }
-      .parent-line { margin-bottom: .7%; }
-      .blessing-line { margin-top: .9%; }
+      .invitation {
+        top: 21%;
+        bottom: 5%;
+      }
+
+      .wedding-logo {
+        width: clamp(82px, 21vw, 112px);
+        max-height: 88px;
+      }
+
+      .headline {
+        font-size: clamp(28px, 6.7vw, 37px);
+      }
+
+      .person-name {
+        font-size: clamp(35px, 7.8vw, 43px);
+      }
+
+      .parent-line {
+        font-size: clamp(12.5px, 2.8vw, 15px);
+        margin-bottom: .7%;
+      }
+
+      .blessing-line {
+        margin-top: .9%;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -353,10 +382,18 @@
     }
   </style>
 </head>
+
 <body>
   <main class="card" aria-label="Shravan and Nikki wedding invitation">
+
     <div class="visual video-layer" id="videoLayer">
-      <video id="openingVideo" playsinline webkit-playsinline preload="auto" controlslist="nodownload noplaybackrate">
+      <video
+        id="openingVideo"
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        controlslist="nodownload noplaybackrate"
+      >
         <source src="assets/opening-animation.mp4" type="video/mp4">
         Your browser does not support HTML video.
       </video>
@@ -369,7 +406,8 @@
     </div>
 
     <section class="invitation" id="invitation" aria-live="polite">
-      <!-- Upload your logo to assets/wedding-logo.png -->
+
+      <!-- Wedding logo -->
       <img
         src="assets/wedding-logo.png"
         alt="Shravan and Nikki Wedding Logo"
@@ -377,32 +415,75 @@
         style="--delay:.15s"
       >
 
-      <p class="eyebrow family-line reveal" style="--delay:.45s">Together with our families</p>
-      <div class="family-ornament reveal" style="--delay:.62s" aria-hidden="true"></div>
-      <p class="invite-line reveal" style="--delay:.8s">Joyfully invite you to celebrate</p>
-      <h1 class="headline reveal" style="--delay:1.05s">The Wedding<br>Celebration</h1>
-      <p class="intro reveal" style="--delay:1.3s">We invite you to be part of our beautiful beginning.</p>
+      <p class="eyebrow family-line reveal" style="--delay:.45s">
+        Together with our families
+      </p>
 
-      <p class="section-label reveal" style="--delay:1.6s">THE GROOM</p>
-      <h2 class="person-name reveal" style="--delay:1.85s">Shravan</h2>
-      <p class="parent-line reveal" style="--delay:2.1s">Son of Smt. Savitri Yadav &amp; Shri Suresh Yadav</p>
+      <div
+        class="family-ornament reveal"
+        style="--delay:.62s"
+        aria-hidden="true"
+      ></div>
 
-      <p class="weds reveal" style="--delay:2.4s">weds</p>
+      <p class="invite-line reveal" style="--delay:.8s">
+        Joyfully invite you to celebrate
+      </p>
 
-      <p class="section-label reveal" style="--delay:2.65s">THE BRIDE</p>
-      <h2 class="person-name reveal" style="--delay:2.9s">Nikki</h2>
-      <p class="parent-line reveal" style="--delay:3.15s">Daughter of Smt. Radha Devi &amp; Shri Jitendra Yadav</p>
+      <h1 class="headline reveal" style="--delay:1.05s">
+        The Wedding<br>Celebration
+      </h1>
 
-      <p class="blessing-line reveal" style="--delay:3.45s">With the Blessings of Our Elders</p>
+      <!-- Blessing moved here -->
+      <p class="blessing-line reveal" style="--delay:1.3s">
+        With the Blessings of Our Elders
+      </p>
+
+      <p class="section-label reveal" style="--delay:1.6s">
+        THE GROOM
+      </p>
+
+      <h2 class="person-name reveal" style="--delay:1.85s">
+        Shravan
+      </h2>
+
+      <p class="parent-line reveal" style="--delay:2.1s">
+        Son of<br>
+        Mrs. Savitri Yadav &amp; Mr. Suresh Yadav
+      </p>
+
+      <p class="weds reveal" style="--delay:2.4s">
+        weds
+      </p>
+
+      <p class="section-label reveal" style="--delay:2.65s">
+        THE BRIDE
+      </p>
+
+      <h2 class="person-name reveal" style="--delay:2.9s">
+        Nikki
+      </h2>
+
+      <p class="parent-line reveal" style="--delay:3.15s">
+        Daughter of<br>
+        Mrs. Radha Devi &amp; Mr. Jitendra Yadav
+      </p>
 
       <!-- SAVE THE DATE box preserved for later use:
-      <div class="save-date reveal" style="--delay:3.9s">SAVE THE DATE</div>
+      <div class="save-date reveal" style="--delay:3.9s">
+        SAVE THE DATE
+      </div>
       -->
 
       <div class="actions reveal" style="--delay:3.8s">
-        <button class="action-btn" id="viewInvitation" type="button">View Invitation</button>
-        <button class="action-btn secondary" id="revealDate" type="button">Reveal the Date ♥</button>
+        <button class="action-btn" id="viewInvitation" type="button">
+          View Invitation
+        </button>
+
+        <button class="action-btn secondary" id="revealDate" type="button">
+          Reveal the Date ♥
+        </button>
       </div>
+
     </section>
   </main>
 
@@ -417,6 +498,7 @@
 
     // Keep the video's first frame visible and paused until OPEN is tapped.
     video.pause();
+
     video.addEventListener("loadeddata", () => {
       if (!started) {
         video.pause();
@@ -426,6 +508,7 @@
 
     async function startWeddingVideo() {
       if (started) return;
+
       started = true;
       openButton.disabled = true;
       openingScreen.classList.add("dismissed");
@@ -433,10 +516,12 @@
 
       try {
         await video.play();
-        // Start the invitation text 3.5 seconds after video playback begins.
+
+        // Start invitation text 3.5 seconds after playback begins.
         invitationTimer = window.setTimeout(() => {
           invitation.classList.add("visible");
         }, 3500);
+
       } catch (error) {
         started = false;
         openingScreen.classList.remove("dismissed");
@@ -445,9 +530,13 @@
     }
 
     function finishWeddingVideo() {
-      // Pausing the video on its final frame keeps that exact frame visible.
+      // Pause on the final video frame.
       video.pause();
-      if (invitationTimer !== null) window.clearTimeout(invitationTimer);
+
+      if (invitationTimer !== null) {
+        window.clearTimeout(invitationTimer);
+      }
+
       invitation.classList.add("visible");
     }
 
@@ -455,7 +544,10 @@
     video.addEventListener("ended", finishWeddingVideo);
 
     document.getElementById("viewInvitation").addEventListener("click", () => {
-      invitation.scrollTo({ top: 0, behavior: "smooth" });
+      invitation.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     });
 
     // Reveal the Date remains a visual placeholder until the date section is added.
