@@ -19,9 +19,7 @@
       --ink: #593b35;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -91,9 +89,7 @@
       transition: opacity .8s ease;
     }
 
-    .opening.dismissed .open-hotspot {
-      opacity: 0;
-    }
+    .opening.dismissed .open-hotspot { opacity: 0; }
 
     .open-hotspot img {
       display: block;
@@ -116,9 +112,7 @@
       background: #18090d;
     }
 
-    .video-layer video {
-      object-fit: fill;
-    }
+    .video-layer video { object-fit: fill; }
 
     .invitation {
       position: absolute;
@@ -141,9 +135,7 @@
       transition: opacity .7s ease;
     }
 
-    .invitation::-webkit-scrollbar {
-      display: none;
-    }
+    .invitation::-webkit-scrollbar { display: none; }
 
     .invitation.visible {
       visibility: visible;
@@ -170,15 +162,26 @@
       }
     }
 
+    /* Logo increased by approximately 20%; its top position is unchanged. */
     .wedding-logo {
       display: block;
-      width: clamp(95px, 25vw, 135px);
+      width: clamp(114px, 30vw, 162px);
       height: auto;
-      max-height: 110px;
+      max-height: 132px;
       object-fit: contain;
       object-position: center;
       margin: 0 auto 1.2%;
       flex-shrink: 0;
+    }
+
+    /* Text below the logo moves down together; the logo itself stays in place. */
+    .text-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      flex: 0 0 auto;
+      padding-top: clamp(14px, 2.5vh, 26px);
     }
 
     .eyebrow {
@@ -189,7 +192,6 @@
       margin: .45% 0;
     }
 
-    /* Smaller family line */
     .family-line {
       font-size: clamp(9px, 2.1vw, 11.5px);
       font-weight: 700;
@@ -197,7 +199,6 @@
       margin: .45% 0 .25%;
     }
 
-    /* Golden gradient line after family text */
     .family-ornament {
       width: 63%;
       height: 2px;
@@ -222,14 +223,12 @@
       margin: .3% 0 .7%;
     }
 
-    /* Wedding heading: elegant serif style */
     .headline {
       color: var(--burgundy);
       font: italic 600 clamp(31px, 7.2vw, 41px)/.98 "Cormorant Garamond", serif;
       margin: 1.1% 0 1%;
     }
 
-    /* Blessing placed directly below Wedding Celebration */
     .blessing-line {
       color: #876538;
       font: italic 600 clamp(13px, 3vw, 16px)/1.2 "Cormorant Garamond", serif;
@@ -244,7 +243,6 @@
       margin: .7% 0 .15%;
     }
 
-    /* Names: lighter Allura calligraphy */
     .person-name {
       color: var(--burgundy);
       font-family: "Allura", cursive;
@@ -258,7 +256,6 @@
       text-shadow: 0 .5px 0 rgba(255,255,255,.35);
     }
 
-    /* Parent details displayed in two lines */
     .parent-line {
       color: #6c514b;
       font: 600 clamp(13.5px, 3vw, 16px)/1.18 "Cormorant Garamond", serif;
@@ -271,7 +268,7 @@
       margin: .35% 0 .5%;
     }
 
-    /* SAVE THE DATE design preserved for later reuse */
+    /* SAVE THE DATE design preserved for later reuse. */
     .save-date {
       border: 1.5px solid rgba(183,135,63,.9);
       border-radius: 5px;
@@ -329,9 +326,7 @@
       background: rgba(255,248,235,.9);
     }
 
-    .action-btn:active {
-      transform: translateY(1px);
-    }
+    .action-btn:active { transform: translateY(1px); }
 
     .sr-only {
       position: absolute;
@@ -351,27 +346,26 @@
         bottom: 5%;
       }
 
+      /* Approximately 20% larger than the previous short-screen logo size. */
       .wedding-logo {
-        width: clamp(82px, 21vw, 112px);
-        max-height: 88px;
+        width: clamp(98px, 25.2vw, 134px);
+        max-height: 106px;
       }
 
-      .headline {
-        font-size: clamp(28px, 6.7vw, 37px);
+      .text-content {
+        padding-top: clamp(10px, 1.8vh, 18px);
       }
 
-      .person-name {
-        font-size: clamp(35px, 7.8vw, 43px);
-      }
+      .headline { font-size: clamp(28px, 6.7vw, 37px); }
+
+      .person-name { font-size: clamp(35px, 7.8vw, 43px); }
 
       .parent-line {
         font-size: clamp(12.5px, 2.8vw, 15px);
         margin-bottom: .7%;
       }
 
-      .blessing-line {
-        margin-top: .9%;
-      }
+      .blessing-line { margin-top: .9%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -407,7 +401,6 @@
 
     <section class="invitation" id="invitation" aria-live="polite">
 
-      <!-- Wedding logo -->
       <img
         src="assets/wedding-logo.png"
         alt="Shravan and Nikki Wedding Logo"
@@ -415,58 +408,56 @@
         style="--delay:.15s"
       >
 
-      <p class="eyebrow family-line reveal" style="--delay:.45s">
-        Together with our families
-      </p>
+      <!-- All text below the logo is grouped so it can move down together. -->
+      <div class="text-content">
+        <p class="eyebrow family-line reveal" style="--delay:.45s">
+          Together with our families
+        </p>
 
-      <div
-        class="family-ornament reveal"
-        style="--delay:.62s"
-        aria-hidden="true"
-      ></div>
+        <div class="family-ornament reveal" style="--delay:.62s" aria-hidden="true"></div>
 
-      <p class="invite-line reveal" style="--delay:.8s">
-        Joyfully invite you to celebrate
-      </p>
+        <p class="invite-line reveal" style="--delay:.8s">
+          Joyfully invite you to celebrate
+        </p>
 
-      <h1 class="headline reveal" style="--delay:1.05s">
-        The Wedding<br>Celebration
-      </h1>
+        <h1 class="headline reveal" style="--delay:1.05s">
+          The Wedding<br>Celebration
+        </h1>
 
-      <!-- Blessing moved here -->
-      <p class="blessing-line reveal" style="--delay:1.3s">
-        With the Blessings of Our Elders
-      </p>
+        <p class="blessing-line reveal" style="--delay:1.3s">
+          With the Blessings of Our Elders
+        </p>
 
-      <p class="section-label reveal" style="--delay:1.6s">
-        THE GROOM
-      </p>
+        <p class="section-label reveal" style="--delay:1.6s">
+          THE GROOM
+        </p>
 
-      <h2 class="person-name reveal" style="--delay:1.85s">
-        Shravan
-      </h2>
+        <h2 class="person-name reveal" style="--delay:1.85s">
+          Shravan
+        </h2>
 
-      <p class="parent-line reveal" style="--delay:2.1s">
-        Son of<br>
-        Mrs. Savitri Yadav &amp; Mr. Suresh Yadav
-      </p>
+        <p class="parent-line reveal" style="--delay:2.1s">
+          Son of<br>
+          Mrs. Savitri Yadav &amp; Mr. Suresh Yadav
+        </p>
 
-      <p class="weds reveal" style="--delay:2.4s">
-        weds
-      </p>
+        <p class="weds reveal" style="--delay:2.4s">
+          weds
+        </p>
 
-      <p class="section-label reveal" style="--delay:2.65s">
-        THE BRIDE
-      </p>
+        <p class="section-label reveal" style="--delay:2.65s">
+          THE BRIDE
+        </p>
 
-      <h2 class="person-name reveal" style="--delay:2.9s">
-        Nikki
-      </h2>
+        <h2 class="person-name reveal" style="--delay:2.9s">
+          Nikki
+        </h2>
 
-      <p class="parent-line reveal" style="--delay:3.15s">
-        Daughter of<br>
-        Mrs. Radha Devi &amp; Mr. Jitendra Yadav
-      </p>
+        <p class="parent-line reveal" style="--delay:3.15s">
+          Daughter of<br>
+          Mrs. Radha Devi &amp; Mr. Jitendra Yadav
+        </p>
+      </div>
 
       <!-- SAVE THE DATE box preserved for later use:
       <div class="save-date reveal" style="--delay:3.9s">
